@@ -1,9 +1,9 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 .AppBody {
@@ -13,4 +13,35 @@
     align-items: flex-start;
     width: 90%;
     margin: 0 auto;
+    flex-flow: row wrap;
+    max-width: 1200px;
+}
+
+.form-container {
+    align-self:stretch;
+    padding: 0;
+    margin: 0;
+    width: 300px;
+}
+
+
+@media screen and (max-width: 680px){
+    .form-container {
+        width: 100% !important;
+    }
+    .jedi-table {
+        width: 100% !important;
+    }
+}
+
+@media screen and (min-width: 975px){
+    .form-container {
+        width: 400px !important;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .form-container {
+        width: 500px !important;
+    }
 }

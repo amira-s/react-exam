@@ -1,12 +1,11 @@
 .jedi-form {
     background-color: white;
-    width: 40%;
     font-family: 'Montserrat', sans-serif;
-    margin: 15px;
+    margin: 15px 0;
     padding: 15px 10px;
     border-radius: 3px;
-    right: 15px;
-    top: 0;
+    width: 100%;
+    max-width: 300px;
 }
 
 .header {
@@ -59,3 +58,24 @@
 .add_button:disabled {
     background-color: #aaa;
 }
+
+
+ @media screen and (max-width: 680px){
+    .jedi-form {
+        max-width: 100% !important;
+    }
+}
+
+@media screen and (min-width: 975px){
+    .jedi-form {
+        max-width: 400px !important;
+    }
+}
+
+
+@media screen and (min-width: 1200px){
+    .jedi-form {
+        max-width: 500px !important;
+    }
+}
+

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { StickyContainer, Sticky } from 'react-sticky';
 import AppHeader from 'components/app-header';
 import JediForm from 'components/jedi-form';
 import JediTable from 'components/jedi-table';
@@ -24,7 +25,17 @@ class App extends Component {
                 <AppHeader />
                 <div className="AppBody">
                     <JediTable jedi={this.props.jedi} />
-                    <JediForm />
+                    <StickyContainer className="form-container">
+                         <Sticky>
+                         {
+                             ({style, isSticky}) => {
+                                return (
+                                 <JediForm style={{position: isSticky? 'fixed' : 'static', top: 0}}/>
+                                 );
+                             }
+                         }
+                        </Sticky>
+                    </StickyContainer>
                 </div>
             </div>
             );
@@ -33,6 +44,7 @@ class App extends Component {
 
 App.propTypes = {
     jedi: PropTypes.array,
+    alerts: PropTypes.array,
 };
 
 function mapStateToProps(state) {

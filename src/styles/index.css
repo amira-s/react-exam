@@ -1,6 +1,15 @@
+:root, html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
     background-color: #f5f9fb;
+    box-sizing: border-box;
 }

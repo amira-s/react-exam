@@ -23,15 +23,15 @@ class JediForm extends Component {
 
     render() {
         return (
-            <div className="jedi-form">
+            <div style={this.props.style} ref="form" className="jedi-form">
                 <p className="header"> Add a Jedi </p>
                 <input id="jedi-name"
-                            value={this.state.jediName}
-                            type="text"
-                            onChange={this.handleChange}
+                value={this.state.jediName}
+                type="text"
+                onChange={this.handleChange}
                 />
                 <button className="add_button" onClick={this.handleSave}disabled={!this.state.jediName.trim()}>
-                    <img src={this.state.jediName.trim() ? logo : logo_disabled} alt="logo" />
+                 <img src={this.state.jediName.trim() ? logo : logo_disabled} alt="logo" />
                 </button>
             </div>
             );

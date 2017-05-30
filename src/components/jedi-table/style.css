@@ -8,12 +8,13 @@ table, td, th {
     margin: 15px;
     text-align: center;
     display: table;
-    width: 50%;
+    width: 45%;
+    border-collapse: collapse;
 }
 
 .jedi-table thead {
     font-weight: bold;
-    border-bottom: 1px solid gray !important;
+    border-bottom: 1px solid #aaa !important;
 }
 
 
