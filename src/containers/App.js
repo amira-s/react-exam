@@ -1,9 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import AppHeader from '../components/app-header'
+
+import AppHeader from '../components/app-header';
+import JediForm from '../components/jedi-form';
+
+import { fetchJedi } from '../actions/actions.js';
+
 import '../styles/App.css';
 
-import { fetchJedi } from '../actions/action.js';
 
 class App extends Component {
     componentWillMount() {
@@ -31,6 +35,7 @@ class App extends Component {
                 <div className="Jedi-List">
                     {this.renderJediList()}
                 </div>
+                <JediForm />
             </div>
             );
     }
