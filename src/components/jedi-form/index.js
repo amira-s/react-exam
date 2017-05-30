@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addJedi } from 'actions/actions.js';
+import { addJedi } from 'actions/jedi';
 import logo from 'assets/jedi-logo.svg';
 import logo_disabled from 'assets/jedi-logo-disabled.svg';
 import './style.css'

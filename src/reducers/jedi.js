@@ -1,7 +1,7 @@
 /**
  * Created by thomashourlier on 2/26/17.
  */
-import * as c from '../actions/actions.js';
+import * as c from 'actions/jedi.js';
 import { combineReducers } from 'redux';
 
 function jediReducer(state = [], action) {
@@ -16,17 +16,9 @@ function jediReducer(state = [], action) {
           ...state,
           action.payload,
         ];
-   case c.ADD_JEDI_FAIL:
-      return {
-        ...state,
-        alerts : [...state.alerts, action.payload],
-      };
    default:
       return state;
   }
 }
 
-export default combineReducers({
-  jedi: jediReducer,
-  alerts: [],
-});
+export default jediReducer;

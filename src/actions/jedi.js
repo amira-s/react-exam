@@ -3,24 +3,16 @@
  */
 
 import axios from 'axios';
+import {addAlert} from './alerts.js';
 
 export const FETCH_JEDIS        = 'FETCH_JEDIS';
 export const ADD_JEDI             = 'ADD_JEDI';
 export const ADD_JEDI_FAIL     = 'ADD_JEDI_FAIL';
 
-
 export const addJediSuccess = (data) => {
     return {
           type: ADD_JEDI,
           payload: data,
-        };
-}
-
-
-export const addJediFail = (msg) => {
-    return {
-          type: ADD_JEDI_FAIL,
-          payload: {type: "Error", msg}
         };
 }
 
@@ -43,9 +35,10 @@ export const addJedi = (name) => {
           })
           .then((res) => {
             dispatch(addJediSuccess(res.data));
+            dispatch(addAlert('success', 'New Jedi added : ' + name));
           })
           .catch((err) => {
-            dispatch(addJediFail(err));
+            dispatch(addAlert('error', err.message));
           });
     }
 }

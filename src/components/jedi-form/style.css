@@ -59,7 +59,6 @@
     background-color: #aaa;
 }
 
-
  @media screen and (max-width: 680px){
     .jedi-form {
         max-width: 100% !important;
@@ -71,7 +70,6 @@
         max-width: 400px !important;
     }
 }
-
 
 @media screen and (min-width: 1200px){
     .jedi-form {

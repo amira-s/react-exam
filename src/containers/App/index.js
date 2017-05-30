@@ -6,7 +6,8 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import AppHeader from 'components/app-header';
 import JediForm from 'components/jedi-form';
 import JediTable from 'components/jedi-table';
-import { fetchJedi } from 'actions/actions.js';
+import Alerts from 'components/Alerts';
+import { fetchJedi } from 'actions/jedi';
 
 import './style.css';
 
@@ -22,6 +23,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <Alerts alerts={this.props.alerts}></Alerts>
                 <AppHeader />
                 <div className="AppBody">
                     <JediTable jedi={this.props.jedi} />
@@ -44,7 +46,7 @@ class App extends Component {
 
 App.propTypes = {
     jedi: PropTypes.array,
-    alerts: PropTypes.array,
+    alerts: PropTypes.array
 };
 
 function mapStateToProps(state) {
