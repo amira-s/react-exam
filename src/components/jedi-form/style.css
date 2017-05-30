@@ -1,0 +1,52 @@
+.jedi-form {
+    width: 80%;
+    font-family: 'Montserrat', sans-serif;
+    margin : 20px auto;
+}
+
+.header {
+    width:  100%;
+    font-weight: bold;
+    font-size : 19pt;
+    padding: 10px 0;
+    margin: 0;
+}
+
+label[for="jedi-name"] {
+    width: 100%;
+    font-size: 15pt;
+    padding: 20px;
+    padding-bottom: 0px;
+}
+
+#jedi-name {
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 5px 5px;
+    margin: 20px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-family: monospace;
+    font-size: 15pt;
+}
+
+#jedi-name:focus {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #03A9F4;;
+}
+
+.add_button {
+    padding: 12px;
+    font-family: Havana;
+    border-radius: 3px;
+    font-size: 12pt;
+    color: white;
+    font-weight: bold;
+    background-color: #FF98C1;
+    border: none;
+}
+
+.add_button:disabled {
+    background-color: #aaa;
+}

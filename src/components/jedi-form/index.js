@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addJedi } from 'actions/actions.js';
-// import './style.css'
+import './style.css'
 
 class JediForm extends Component {
 
@@ -12,6 +12,7 @@ class JediForm extends Component {
 
     handleSave = (event) => {
         this.props.dispatch(addJedi(this.state.jediName));
+        this.setState({jediName: ""});
     }
 
     handleChange = (event) => {
@@ -20,17 +21,15 @@ class JediForm extends Component {
 
     render() {
         return (
-            <div className="JediForm">
-                <div className="header"> Add A Jedi </div>
-                <label htmlFor="jedi_name">
-                    Jedi Name :
-                    <input id="jedi_name"
-                                value={this.state.jediName}
-                                type="text"
-                                onChange={this.handleChange}
-                    />
-                </label>
-                <button onClick={this.handleSave}> Add Jedi </button>
+            <div className="jedi-form">
+                <p className="header"> Add a Jedi </p>
+                <label htmlFor="jedi-name">Name</label>
+                <input id="jedi-name"
+                            value={this.state.jediName}
+                            type="text"
+                            onChange={this.handleChange}
+                />
+                <button className="add_button" onClick={this.handleSave}disabled={!this.state.jediName.trim()}> Add </button>
             </div>
             );
     }
