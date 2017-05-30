@@ -6,21 +6,27 @@ import { combineReducers } from 'redux';
 
 function jediReducer(state = [], action) {
   switch (action.type) {
-    case c.FETCH_FINISH:
+    case c.FETCH_JEDIS:
       return [
         ...action.payload,
         ...state,
       ];
-    case c.ADD_JEDI_SUCCESS:
+    case c.ADD_JEDI:
         return [
-          ...state ,
+          ...state,
           action.payload,
         ];
-    default:
+   case c.ADD_JEDI_FAIL:
+      return {
+        ...state,
+        alerts : [...state.alerts, action.payload],
+      };
+   default:
       return state;
   }
 }
 
 export default combineReducers({
   jedi: jediReducer,
+  alerts: [],
 });

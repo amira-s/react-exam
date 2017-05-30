@@ -1,13 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import AppHeader from '../components/app-header';
-import JediForm from '../components/jedi-form';
+import AppHeader from 'components/app-header';
+import JediForm from 'components/jedi-form';
+import JediTable from 'components/jedi-table';
+import { fetchJedi } from 'actions/actions.js';
 
-import { fetchJedi } from '../actions/actions.js';
-
-import '../styles/App.css';
-
+import './style.css';
 
 class App extends Component {
     componentWillMount() {
@@ -18,24 +17,14 @@ class App extends Component {
         this.props.dispatch(fetchJedi());
     }
 
-    renderJediList() {
-        return (
-            this.props.jedi.map((jedi, index) => (
-                            <div key={index}>
-                                Jedi: id: {jedi.id} name: {jedi.name}
-                            </div>
-            )));
-    }
-
     render() {
-
         return (
             <div className="App">
                 <AppHeader />
-                <div className="Jedi-List">
-                    {this.renderJediList()}
+                <div className="AppBody">
+                    <JediTable jedi={this.props.jedi} />
+                    <JediForm />
                 </div>
-                <JediForm />
             </div>
             );
     }
@@ -48,6 +37,7 @@ App.propTypes = {
 function mapStateToProps(state) {
     return {
         jedi: state.jedi,
+        alerts: state.alerts
     };
 }
 

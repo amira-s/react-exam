@@ -4,22 +4,23 @@
 
 import axios from 'axios';
 
-export const FETCH_FINISH            = 'FETCH_FINISH';
-export const ADD_JEDI_SUCCESS  = 'ADD_JEDI_SUCCESS';
-export const ADD_JEDI_FAIL           = 'ADD_JEDI_FAIL';
+export const FETCH_JEDIS        = 'FETCH_JEDIS';
+export const ADD_JEDI             = 'ADD_JEDI';
+export const ADD_JEDI_FAIL     = 'ADD_JEDI_FAIL';
 
 
 export const addJediSuccess = (data) => {
     return {
-          type: ADD_JEDI_SUCCESS,
+          type: ADD_JEDI,
           payload: data,
         };
 }
 
 
-export const addJediFail = () => {
+export const addJediFail = (msg) => {
     return {
           type: ADD_JEDI_FAIL,
+          payload: {type: "Error", msg}
         };
 }
 
@@ -28,7 +29,7 @@ export const fetchJedi = () => {
     axios.get('http://localhost:3001/jedi')
       .then((res) => {
         dispatch({
-          type: FETCH_FINISH,
+          type: FETCH_JEDIS,
           payload: res.data,
         });
       })
@@ -41,12 +42,10 @@ export const addJedi = (name) => {
             name
           })
           .then((res) => {
-            console.log("successfully added jedi : ", res);
             dispatch(addJediSuccess(res.data));
           })
           .catch((err) => {
-            console.log("failed to add jedi : ", err);
-            dispatch(addJediFail());
+            dispatch(addJediFail(err));
           });
     }
 }

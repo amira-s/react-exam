@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addJedi } from 'actions/actions.js';
+import logo from 'assets/jedi-logo.svg';
+import logo_disabled from 'assets/jedi-logo-disabled.svg';
 import './style.css'
 
 class JediForm extends Component {
@@ -23,13 +25,14 @@ class JediForm extends Component {
         return (
             <div className="jedi-form">
                 <p className="header"> Add a Jedi </p>
-                <label htmlFor="jedi-name">Name</label>
                 <input id="jedi-name"
                             value={this.state.jediName}
                             type="text"
                             onChange={this.handleChange}
                 />
-                <button className="add_button" onClick={this.handleSave}disabled={!this.state.jediName.trim()}> Add </button>
+                <button className="add_button" onClick={this.handleSave}disabled={!this.state.jediName.trim()}>
+                    <img src={this.state.jediName.trim() ? logo : logo_disabled} alt="logo" />
+                </button>
             </div>
             );
     }
