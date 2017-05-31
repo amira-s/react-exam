@@ -25,23 +25,21 @@ class JediForm extends Component {
 
     render() {
         return (
-            <div style={this.props.style} ref="form" className="jedi-form">
-                <form onSubmit={this.handleSave}>
-                    <p className="header"> Add a Jedi </p>
-                    <div className="jedi_add">
-                        <label htmlFor="jedi-name">Jedi name</label>
-                        <input id="jedi-name"
-                            value={this.state.jediName}
-                            type="text"
-                            onChange={this.handleChange}
-                        />
-                        <button type="submit" className="add_button" disabled={!this.state.jediName.trim()}>
-                            <img src={this.state.jediName.trim() ? logo : logo_disabled} alt="logo" />
-                        </button>
-                    </div>
-                </form>
-            </div>
-            );
+            <form onSubmit={this.handleSave} style={this.props.style} ref="form" className="jedi-form">
+                <p className="header"> Add a Jedi </p>
+                <div className="jedi_add">
+                    <label htmlFor="jedi-name">Jedi name</label>
+                    <input id="jedi-name"
+                        value={this.state.jediName}
+                        type="text"
+                        onChange={this.handleChange}
+                    />
+                    <button type="submit" className="add_button" disabled={!this.state.jediName.trim()}>
+                        <img src={this.state.jediName.trim() ? logo : logo_disabled} alt="logo" />
+                    </button>
+                </div>
+            </form>
+        );
     }
 }
 

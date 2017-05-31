@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -11,6 +11,25 @@ import Alerts from 'components/Alerts';
 import { fetchJedi } from 'actions/jedi';
 
 import './style.css';
+
+
+class JediFormContainer extends PureComponent {
+    render() {
+        return (
+            <StickyContainer className="form-container">
+                <Media query="(max-width: 680px)">
+                    {matches => matches ? (
+                        <JediForm />
+                        ) : (
+                        <Sticky>
+                            {({isSticky}) => (<JediForm style={{position: isSticky? 'fixed' : 'static', top: 0}}/>)}
+                        </Sticky>
+                        )}
+                    </Media>
+            </StickyContainer>
+        );
+    }
+}
 
 class App extends Component {
     componentWillMount() {
@@ -30,32 +49,16 @@ class App extends Component {
                     <section className="jedi-table-container">
                         <JediTable jedis={this.props.jedi} />
                     </section>
-                    <StickyContainer className="form-container">
-                        <Media query="(max-width: 680px)">
-                            {matches => matches ? (
-                                <JediForm />
-                            ) : (
-                                <Sticky>
-                                {
-                                    ({isSticky}) => {
-                                       return (
-                                        <JediForm style={{position: isSticky? 'fixed' : 'static', top: 0}}/>
-                                        );
-                                    }
-                                }
-                                 </Sticky>
-                            )}
-                        </Media>
-                    </StickyContainer>
+                    <JediFormContainer />
                 </div>
             </div>
-            );
+        );
     }
 }
 
 App.propTypes = {
     jedi: PropTypes.array,
-    alerts: PropTypes.array
+    alerts: PropTypes.array,
 };
 
 function mapStateToProps(state) {
@@ -65,6 +68,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(
-    mapStateToProps,
-    )(App);
+export default connect(mapStateToProps)(App);

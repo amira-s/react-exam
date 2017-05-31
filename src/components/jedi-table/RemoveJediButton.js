@@ -12,9 +12,7 @@ class RemoveJediButton extends PureComponent {
             <button
                 className="remove-jedi"
                 title="Remove Jedi"
-                onClick={this.removeJedi}>
-                X
-            </button>
+                onClick={this.removeJedi} />
             );
     }
 }

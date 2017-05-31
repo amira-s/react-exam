@@ -5,10 +5,10 @@
 import axios from 'axios';
 import {addAlert} from './alerts.js';
 
-export const FETCH_JEDIS       = 'FETCH_JEDIS';
-export const ADD_JEDI          = 'ADD_JEDI';
-export const ADD_JEDI_FAIL     = 'ADD_JEDI_FAIL';
-export const REMOVE_JEDI       = 'REMOVE_JEDI';
+export const FETCH_JEDIS           = 'FETCH_JEDIS';
+export const ADD_JEDI                = 'ADD_JEDI';
+export const ADD_JEDI_FAIL        = 'ADD_JEDI_FAIL';
+export const REMOVE_JEDI          = 'REMOVE_JEDI';
 export const REMOVE_JEDI_FAIL  = 'REMOVE_JEDI_FAIL';
 
 export const addJediSuccess = (data) => ({

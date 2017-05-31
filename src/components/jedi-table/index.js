@@ -13,12 +13,12 @@ class JediTableRow extends PureComponent {
                     <RemoveJediButton jedi={jedi}/>
                 </td>
             </tr>
-            );
+        );
     }
 }
 
-class JediTable extends PureComponent {
-    renderTableHead() {
+class JediTableHead extends PureComponent {
+    render() {
         return (
             <thead>
                 <tr>
@@ -26,13 +26,15 @@ class JediTable extends PureComponent {
                     <th> Name </th>
                 </tr>
             </thead>
-            );
+        );
     }
+}
 
+class JediTable extends PureComponent {
     render() {
         return (
             <table className="jedi-table">
-                {this.renderTableHead()}
+                <JediTableHead />
                 <tbody>
                     {this.props.jedis.map((jedi, index) => (
                         <JediTableRow key={index} jedi={jedi}/>
