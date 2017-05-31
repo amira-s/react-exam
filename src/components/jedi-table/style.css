@@ -3,13 +3,26 @@ table, td, th {
 }
 
 .jedi-table {
+    /* Fix incorrect width in some configurations due to display-table */
+    width: 100.5%;
     font-family: 'Montserrat', sans-serif;
     font-size: 12pt;
-    margin: 15px 0 0 0;
     text-align: center;
     display: table;
-    width: 45%;
     border-collapse: collapse;
+    background: #ffffff;
+}
+
+.jedi-table thead {
+    font-weight: bold;
+    border-bottom: 1px solid #b0c0c7 !important;
+    background: #333333;
+    color: #ffffff;
+}
+
+.jedi-table thead tr {
+    background: #333333;
+    color: #ffffff;
 }
 
 .jedi-table thead {
@@ -30,3 +43,9 @@ table, td, th {
     padding: 10px 5px;
 }
 
+.jedi-table tbody tr:nth-child(even) {
+    background: #ffffff;
+}
+.jedi-table tbody tr:nth-child(odd) {
+    background: #deeff7;
+}

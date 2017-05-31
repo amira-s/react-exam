@@ -1,11 +1,12 @@
 .jedi-form {
     background-color: white;
     font-family: 'Montserrat', sans-serif;
-    margin: 15px 0;
-    padding: 15px 10px;
+    padding: 15px 35px;
     border-radius: 3px;
     width: 100%;
     max-width: 300px;
+    text-align: left;
+    margin-top: 15px;
 }
 
 .header {
@@ -16,22 +17,25 @@
     margin: 0;
 }
 
-/* label[for="jedi-name"] {
-    width: 100%;
-    font-size: 1.5vw;
-    padding: 20px;
-    padding-bottom: 0px;
+label[for="jedi-name"] {
+    display: none;
 }
- */
+
+.jedi_add {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
 #jedi-name {
+    flex-grow: 1;
+    max-width: 100%;
     border: none;
     border-bottom: 1px solid gray;
     padding: 5px;
-    margin: 20px;
-    margin-bottom: 0;
+    margin: 20px 20px 0 0;
     font-family: monospace;
     font-size: 15pt;
-    width: 70%;
 }
 
 #jedi-name:focus {
@@ -59,7 +63,7 @@
     background-color: #aaa;
 }
 
- @media screen and (max-width: 680px){
+@media screen and (max-width: 680px){
     .jedi-form {
         max-width: 100% !important;
     }

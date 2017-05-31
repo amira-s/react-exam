@@ -2,7 +2,7 @@ import React from 'react';
 import logo from 'assets/millennium-falcon.svg';
 import './styles.css';
 
-const AppHeader = (props) => {
+const AppHeader = () => {
 
         return (
                 <div className="app-header stars">

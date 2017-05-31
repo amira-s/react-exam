@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { StickyContainer, Sticky } from 'react-sticky';
+import Media from 'react-media';
 import AppHeader from 'components/app-header';
 import JediForm from 'components/jedi-form';
 import JediTable from 'components/jedi-table';
@@ -23,20 +24,28 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Alerts alerts={this.props.alerts}></Alerts>
+                <Alerts alerts={this.props.alerts} />
                 <AppHeader />
                 <div className="AppBody">
-                    <JediTable jedi={this.props.jedi} />
+                    <section className="jedi-table-container">
+                        <JediTable jedi={this.props.jedi} />
+                    </section>
                     <StickyContainer className="form-container">
-                         <Sticky>
-                         {
-                             ({style, isSticky}) => {
-                                return (
-                                 <JediForm style={{position: isSticky? 'fixed' : 'static', top: 0}}/>
-                                 );
-                             }
-                         }
-                        </Sticky>
+                        <Media query="(max-width: 680px)">
+                            {matches => matches ? (
+                                <JediForm />
+                            ) : (
+                                <Sticky>
+                                {
+                                    ({isSticky}) => {
+                                       return (
+                                        <JediForm style={{position: isSticky? 'fixed' : 'static', top: 0}}/>
+                                        );
+                                    }
+                                }
+                                 </Sticky>
+                            )}
+                        </Media>
                     </StickyContainer>
                 </div>
             </div>

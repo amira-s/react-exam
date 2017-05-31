@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
-import './style.css'
+import './style.css';
 
 class JediTable extends Component {
 
     renderJediList() {
         return (
             this.props.jedi.map((jedi, index) => {
-                          const rowcolor = {
-                                0 : '#deeff7',
-                                1 : 'transparent',
-                            }
-                            return (
-                            <tr style={{backgroundColor: rowcolor[index%2]}} key={index}>
-                                <td className="id"> #{jedi.id} </td>
-                                <td className="name"> {jedi.name} </td>
-                            </tr>);
+                return (
+                    <tr key={index}>
+                        <td className="id"> #{jedi.id} </td>
+                        <td className="name"> {jedi.name} </td>
+                    </tr>);
             })
         );
     }
