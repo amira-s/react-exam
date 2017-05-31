@@ -13,8 +13,6 @@ body {
     background-color: #f5f9fb;
     box-sizing: border-box;
     min-height: 100vh;
-}
 
-body {
     background:#000 url(../assets/stars.png) repeat top center;
 }
