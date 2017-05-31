@@ -4,7 +4,7 @@ import Alert from 'components/Alert';
 const style = {
     position: 'fixed',
     top: 70,
-    right: 10,
+    right: 20,
     zIndex: 999999
 };
 

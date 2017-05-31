@@ -2,7 +2,6 @@
  * Created by thomashourlier on 2/26/17.
  */
 import * as c from 'actions/jedi.js';
-import { combineReducers } from 'redux';
 
 function jediReducer(state = [], action) {
   switch (action.type) {
