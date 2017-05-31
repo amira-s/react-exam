@@ -15,6 +15,15 @@ function jediReducer(state = [], action) {
           ...state,
           action.payload,
         ];
+    case c.REMOVE_JEDI:
+        var jedis = state;
+        var removedIndex = jedis.findIndex((jedi) => jedi.id === action.payload);
+        jedis = [
+            ...jedis.slice(0, removedIndex),
+            ...jedis.slice(removedIndex + 1) ];
+        return [
+            ...jedis,
+        ];
    default:
       return state;
   }

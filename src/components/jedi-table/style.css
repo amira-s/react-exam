@@ -3,7 +3,7 @@ table, td, th {
 }
 
 .jedi-table {
-    /* Fix incorrect width in some configurations due to display-table */
+    /* Fix incorrect width in some configurations due to display: table */
     width: 100.5%;
     font-family: 'Montserrat', sans-serif;
     font-size: 12pt;
@@ -46,6 +46,31 @@ table, td, th {
 .jedi-table tbody tr:nth-child(even) {
     background: #ffffff;
 }
+.jedi-table tbody tr:nth-child(even):hover {
+    background: #f1f1f1;
+}
 .jedi-table tbody tr:nth-child(odd) {
     background: #deeff7;
+}
+.jedi-table tbody tr:nth-child(odd):hover {
+    background: #d0e1ea;
+}
+
+.jedi-table tr .remove-jedi {
+    visibility: hidden;
+}
+.jedi-table tr:hover .remove-jedi {
+    visibility: initial;
+}
+
+.remove-jedi {
+    float: right;
+    background: transparent;
+    border: none;
+    width: 1.7em;
+    height: 1.7em;
+    background: url('../../assets/saber.svg');
+    margin-right: 5px;
+    font-weight: bold;
+    cursor: pointer;
 }

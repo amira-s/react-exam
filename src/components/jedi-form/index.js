@@ -13,7 +13,7 @@ class JediForm extends Component {
     }
 
     handleSave = (event) => {
-        this.props.dispatch(addJedi(this.state.jediName));
+        this.props.dispatch(addJedi(this.state.jediName.trim()));
         this.setState({jediName: ""});
         event.preventDefault();
 
@@ -45,4 +45,4 @@ class JediForm extends Component {
     }
 }
 
-export default connect ()(JediForm);
+export default connect()(JediForm);

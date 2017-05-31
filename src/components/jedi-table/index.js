@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import './style.css';
+import RemoveJediButton from './RemoveJediButton';
 
 class JediTableRow extends PureComponent {
     render() {
@@ -7,14 +8,16 @@ class JediTableRow extends PureComponent {
         return (
             <tr>
                 <td className="id"> #{jedi.id} </td>
-                <td className="name"> {jedi.name} </td>
+                <td className="name">
+                    {jedi.name}
+                    <RemoveJediButton jedi={jedi}/>
+                </td>
             </tr>
             );
     }
 }
 
 class JediTable extends PureComponent {
-
     renderTableHead() {
         return (
             <thead>
@@ -31,7 +34,7 @@ class JediTable extends PureComponent {
             <table className="jedi-table">
                 {this.renderTableHead()}
                 <tbody>
-                    {this.props.jedi.map((jedi, index) => (
+                    {this.props.jedis.map((jedi, index) => (
                         <JediTableRow key={index} jedi={jedi}/>
                     ))}
                 </tbody>

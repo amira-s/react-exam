@@ -28,7 +28,7 @@ class App extends Component {
                 <AppHeader />
                 <div className="AppBody">
                     <section className="jedi-table-container">
-                        <JediTable jedi={this.props.jedi} />
+                        <JediTable jedis={this.props.jedi} />
                     </section>
                     <StickyContainer className="form-container">
                         <Media query="(max-width: 680px)">
