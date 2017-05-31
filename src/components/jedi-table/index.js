@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './style.css';
 
-class JediTable extends Component {
-
-    renderJediList() {
+class JediTableRow extends PureComponent {
+    render() {
+        const jedi = this.props.jedi;
         return (
-            this.props.jedi.map((jedi, index) => {
-                return (
-                    <tr key={index}>
-                        <td className="id"> #{jedi.id} </td>
-                        <td className="name"> {jedi.name} </td>
-                    </tr>);
-            })
-        );
+            <tr>
+                <td className="id"> #{jedi.id} </td>
+                <td className="name"> {jedi.name} </td>
+            </tr>
+            );
     }
+}
+
+class JediTable extends PureComponent {
 
     renderTableHead() {
         return (
@@ -30,7 +30,11 @@ class JediTable extends Component {
         return (
             <table className="jedi-table">
                 {this.renderTableHead()}
-                <tbody>{this.renderJediList()}</tbody>
+                <tbody>
+                    {this.props.jedi.map((jedi, index) => (
+                        <JediTableRow key={index} jedi={jedi}/>
+                    ))}
+                </tbody>
             </table>
             );
     }
