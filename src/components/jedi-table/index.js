@@ -5,15 +5,19 @@ class JediTable extends Component {
 
     renderJediList() {
         return (
-            this.props.jedi.map((jedi, index) => (
-                            <tr key={index}>
+            this.props.jedi.map((jedi, index) => {
+                          const rowcolor = {
+                                0 : '#deeff7',
+                                1 : 'transparent',
+                            }
+                            return (
+                            <tr style={{backgroundColor: rowcolor[index%2]}} key={index}>
                                 <td className="id"> #{jedi.id} </td>
                                 <td className="name"> {jedi.name} </td>
-                            </tr>
-            ))
+                            </tr>);
+            })
         );
     }
-
 
     renderTableHead() {
         return (

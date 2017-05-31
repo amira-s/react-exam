@@ -3,9 +3,9 @@ table, td, th {
 }
 
 .jedi-table {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 12pt;
-    margin: 15px;
+    margin: 15px 0 0 0;
     text-align: center;
     display: table;
     width: 45%;
@@ -14,7 +14,7 @@ table, td, th {
 
 .jedi-table thead {
     font-weight: bold;
-    border-bottom: 1px solid #aaa !important;
+    border-bottom: 1px solid #b0c0c7 !important;
 }
 
 
