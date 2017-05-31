@@ -9,12 +9,10 @@ export const FETCH_JEDIS        = 'FETCH_JEDIS';
 export const ADD_JEDI             = 'ADD_JEDI';
 export const ADD_JEDI_FAIL     = 'ADD_JEDI_FAIL';
 
-export const addJediSuccess = (data) => {
-    return {
-          type: ADD_JEDI,
-          payload: data,
-        };
-}
+export const addJediSuccess = (data) => ({
+    type: ADD_JEDI,
+    payload: data,
+});
 
 export const fetchJedi = () => {
   return (dispatch) => {
@@ -24,9 +22,9 @@ export const fetchJedi = () => {
           type: FETCH_JEDIS,
           payload: res.data,
         });
-      })
-  }
-}
+      });
+  };
+};
 
 export const addJedi = (name) => {
     return (dispatch) => {
@@ -40,5 +38,5 @@ export const addJedi = (name) => {
           .catch((err) => {
             dispatch(addAlert('error', err.message));
           });
-    }
-}
+    };
+};

@@ -10,18 +10,17 @@ const style = {
 
 class Alerts extends PureComponent
 {
-    render()
-    {
-        var alerts = this.props.alerts.map(function (alert, i) {
-            return <Alert key={i} type={alert.type} message={alert.msg}></Alert>
-        });
+    render() {
+        const alerts = this.props.alerts.map((alert, i) => (
+            <Alert key={i} type={alert.type} message={alert.msg}/>
+        ));
 
         return (
             <div style={style}>
                 {alerts}
             </div>
         );
-    };
+    }
 }
 
 export default Alerts;

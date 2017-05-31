@@ -11,14 +11,13 @@ const textColors = {
 class Alert extends PureComponent
 {
 
-    render()
-    {
+    render() {
         return (
             <div className="alert">
                 <div style={{color: textColors[this.props.type]}}>{this.props.message}</div>
             </div>
         );
-    };
+    }
 }
 
 export default Alert;
